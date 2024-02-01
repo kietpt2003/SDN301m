@@ -4,6 +4,7 @@ import express from 'express';
 import { configLog } from './config/configLogServer';
 import { configViewEngine } from './config/viewEngine';
 import { initWebRouter } from './routes/web';
+import { configBodyParse } from './config/configBodyParse';
 const app = express();
 
 //Config .env
@@ -11,6 +12,9 @@ configENV(dotenv);
 
 //Config check log server
 configLog(app);
+
+//Config body parser
+configBodyParse(app);
 
 //config template engine and config static files
 configViewEngine(app);
